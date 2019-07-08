@@ -10,7 +10,7 @@ feature 'user can search for foods' do
 
       # And I fill in the search form with "sweet potatoes"
       # (Note: Use the existing search form)
-      fill_in "search", with: "sweet potatoes"
+      fill_in "q", with: "sweet potatoes"
 
       # And I click "Search"
       click_link "Search"
