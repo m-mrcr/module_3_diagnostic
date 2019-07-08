@@ -1,12 +1,16 @@
 class UsdaFacade
 
+  def initialize(query)
+    @query = query
+  end
+
   def foods
-    if usda_service.food_info(query)
+    binding.pry
   end
 
   private
 
   def usda_service
-    UsdaService.new(query)
+    UsdaService.new(@query)
   end
 end

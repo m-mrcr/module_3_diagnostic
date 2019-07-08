@@ -1,7 +1,14 @@
 class UsdaService
 
-  private
+  def initialize(query)
+    @query = query
+  end
 
+  def something
+    binding.pry
+  end
+
+  private
 
   def get_json(url, params = nil)
     response = conn.get(url, params)

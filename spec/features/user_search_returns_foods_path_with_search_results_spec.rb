@@ -13,7 +13,7 @@ feature 'user can search for foods' do
       fill_in "q", with: "sweet potatoes"
 
       # And I click "Search"
-      click_link "Search"
+      click_button "Search"
 
       # Then I should be on page "/foods"
       expect(current_path).to eq(foods_path)
