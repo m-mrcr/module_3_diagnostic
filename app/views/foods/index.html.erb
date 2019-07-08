@@ -1,3 +1,15 @@
 <section id="total_results">
-  <% binding.pry %>
+  <h1>Total Results</h1>
+  <%= facade.total_results %> results
+</section>
+<section id="search_results">
+  <% facade.top_ten_results.each do |result| %>
+    <section class="search_result">
+      Name: <%= result.name %>
+      NDB Number: <%= result.ndb_number %>
+      Group: <%= result.group %>
+      Data Source: <%= result.data_source %>
+      Manufacturer: <%= result.manufacturer %>
+    </section>
+  <% end %>
 </section>

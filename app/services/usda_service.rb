@@ -4,20 +4,21 @@ class UsdaService
     @query = query
   end
 
-  def something
-    binding.pry
+  def food_info
+    get_json("https://api.nal.usda.gov/ndb/search/?format=json&q=#{@query}&sort=n&max=25&offset=0")
   end
 
   private
 
-  def get_json(url, params = nil)
-    response = conn.get(url, params)
+  def get_json(url)
+    response = conn.get(url, @query)
     JSON.parse(response.body, symbolize_names: true)
   end
 
   def conn
-    Faraday.new(url: ' https://api.nal.usda.gov') do |f|
-      f.headers['Authorization'] = "token #{@user.github_token}"
+    binding.pry
+    Faraday.new(url: ' https://api.nal.usda.gov/') do |f|
+      f.headers['api_key'] = ENV["USDA_Key"]
       f.adapter Faraday.default_adapter
     end
   end
