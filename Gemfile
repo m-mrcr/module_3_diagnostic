@@ -12,10 +12,17 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'faraday'
+gem 'figaro'
 
 group :development, :test do
-  gem 'pry'
   gem 'awesome_print'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capybara'
+
+  gem 'launchy'
+  gem 'pry'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :test do
