@@ -1,15 +1,17 @@
+<h1>Search Results for "<%= facade.query %>"</h1>
 <section id="total_results">
-  <h1>Total Results</h1>
-  <%= facade.total_results %> results
+  <h2><%= facade.total_results %> results</h2>
 </section>
 <section id="search_results">
-  <% facade.top_ten_results.each do |result| %>
+  <% facade.search_results.each do |result| %>
     <section class="search_result">
-      Name: <%= result.name %>
-      NDB Number: <%= result.ndb_number %>
-      Group: <%= result.group %>
-      Data Source: <%= result.data_source %>
-      Manufacturer: <%= result.manufacturer %>
+      <ol>
+        <li id="name">Name: <%= result.name %></li>
+        <li id="ndb_number">NDB Number: <%= result.ndb_number %></li>
+        <li id="group">Group: <%= result.group %></li>
+        <li id="data_source">Data Source: <%= result.data_source %></li>
+        <li id="manufacturer">Manufacturer: <%= result.manufacturer %></li>
+      </ol>
     </section>
   <% end %>
 </section>

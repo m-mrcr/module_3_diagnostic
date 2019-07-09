@@ -1,26 +1,22 @@
 class UsdaFacade
-
+  attr_reader :query
   def initialize(query)
     @query = query
   end
 
   def total_results
-    usda_service.food_info
+    usda_service[:list][:total]
   end
 
-  def top_ten_results
-    if usda_service.food_info.class == Hash
-      []
-    else
-      usda_service.food_info.take(5).map do |food|
-        Food.new(food)
-      end
+  def search_results
+    r = usda_service[:list][:item].take(10).map do |item|
+      Food.new(item)
     end
   end
-"https://api.nal.usda.gov/ndb/search/?format=json&q=#{@query}&sort=n&max=25&offset=0&api_key=#{ENV["USDA_Key"]}" 
+
   private
 
   def usda_service
-    UsdaService.new(@query)
+    UsdaService.new(@query).food_info
   end
 end
